@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/colayoutGame">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:foreground="@color/transparant"
+        custom:elevation="0.0dip">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarGame"
+            android:background="@null"
+            android:layout_width="fill_parent"
+            android:layout_height="?actionBarSize"
+            android:foreground="@color/transparant"
+            android:minHeight="0.0dip"
+            custom:layout_scrollFlags="enterAlwaysCollapsed"
+            custom:layout_collapseMode="pin">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/content_match"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/llCadangan"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1.0" android:layout_above="@id/scrollView">
+            <LinearLayout
+                android:background="#ffdddddd"
+                android:layout_width="fill_parent"
+                android:layout_height="62.0dip"
+                android:layout_weight="0.5">
+                <android.support.v7.widget.RecyclerView
+                    android:orientation="horizontal"
+                    android:id="@+id/rvTeamA"
+                    android:paddingLeft="8.0dip"
+                    android:clipToPadding="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+            </LinearLayout>
+            <LinearLayout
+                android:background="#ffdddddd"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5">
+                <android.support.v7.widget.RecyclerView
+                    android:orientation="horizontal"
+                    android:id="@+id/rvTeamB"
+                    android:paddingLeft="8.0dip"
+                    android:clipToPadding="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@id/scrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/soccer_field"
+                    android:background="@drawable/field"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:padding="16.0dip"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0">
+
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_width="0.0dip"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1.0">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent">
+                                <LinearLayout android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="0.35">
+
+                                    <Button
+                                        android:textSize="19.0sp"
+                                        android:id="@+id/left_1_1"
+                                        android:background="@drawable/touch_transparent"
+                                        android:layout_width="40.0dip"
+                                        android:layout_height="40.0dip"
+                                        android:layout_centerHorizontal="true" />
+
+                                    <TextView
+                                        android:textAppearance="@style/textNickName"
+                                        android:id="@+id/ltext_1_1"
+                                        android:paddingTop="3.0dip"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="" />
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_width="0.0dip"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1.0">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent">
+
+                                <LinearLayout
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="0.35">
+
+                                    <Button
+                                        android:textSize="19.0sp"
+                                        android:id="@+id/left_2_1"
+                                        android:background="@drawable/touch_transparent"
+                                        android:layout_width="40.0dip"
+                                        android:layout_height="40.0dip"
+                                        android:layout_centerHorizontal="true" />
+
+                                    <TextView
+                                        android:textAppearance="@style/textNickName"
+                                        android:id="@+id/ltext_2_1"
+                                        android:paddingTop="3.0dip"
+                                        android:layout_width="fill_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="" />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="0.35">
+
+                                    <Button
+                                        android:textSize="19.0sp"
+                                        android:id="@+id/left_2_2"
+                                        android:background="@drawable/touch_transparent"
+                                        android:layout_width="40.0dip"
+                                        android:layout_height="40.0dip"
+                                        android:layout_centerHorizontal="true" />
+
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_2_2" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_2_3" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_2_3" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_2_4" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_2_4" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_3_1" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_3_1" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_3_2" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_3_2" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_3_3" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_3_3" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_3_4" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_3_4" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_4_1" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_4_1" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_4_2" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_4_2" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_4_3" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_4_3" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/left_4_4" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/ltext_4_4" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_4_1" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_4_1" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_4_2" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_4_2" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_4_3" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_4_3" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_4_4" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_4_4" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_3_1" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_3_1" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_3_2" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_3_2" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_3_3" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_3_3" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_3_4" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_3_4" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_2_1" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_2_1" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_2_2" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_2_2" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_2_3" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_2_3" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_2_4" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_2_4" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                        <RelativeLayout android:gravity="center" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                                <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="0.35">
+                                    <Button android:textSize="19.0sp" android:id="@+id/right_1_1" android:background="@drawable/touch_transparent" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_centerHorizontal="true" />
+                                    <TextView android:textAppearance="@style/textNickName" android:id="@+id/rtext_1_1" android:paddingTop="3.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

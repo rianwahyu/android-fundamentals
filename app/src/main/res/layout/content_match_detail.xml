@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:id="@+id/content_match_detail"
+    app:layout_width="match_parent"
+    app:layout_height="match_parent"
+
+    tools:ignore="NamespaceTypo">
+    <WebView app:id="@+id/webView" app:layout_width="match_parent" app:layout_height="match_parent" />
+</RelativeLayout>

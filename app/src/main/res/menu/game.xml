@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Result"
+        android:title="Result"
+        app:showAsAction="never">
+    </item>
+
+    <item
+        android:id="@+id/Field"
+        android:title="Field Mode"
+        app:showAsAction="never">
+    </item>
+
+    <item
+        android:id="@+id/CSV"
+        android:title="Export CSV"
+        app:showAsAction="never">
+    </item>
+
+</menu>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_add_a"
+        android:orderInCategory="100"
+        android:title="Add Player Team A"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_add_b"
+        android:orderInCategory="101"
+        android:title="Add Player Team B"
+        app:showAsAction="never" />
+
+</menu>
