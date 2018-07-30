@@ -140,9 +140,9 @@ public class PlayerActivity2 extends AppCompatActivity implements PlayerAdapter.
                 c = db.getPlayerDataWhere(v_player_id, cur_player);
             }else if (mode.equals("update")){
                 c = db.getPlayerDataWhere2(v_player_id, cur_player);
-            }else if (Temp.getReplace().equals("old")){
+            }/*else if (mode.equals("old")){
                 c = db.getPlayerDataWhere3(v_player_id, cur_player);
-            }
+            }*/
 
             playerMatchAdapter.clear();
         } else {
