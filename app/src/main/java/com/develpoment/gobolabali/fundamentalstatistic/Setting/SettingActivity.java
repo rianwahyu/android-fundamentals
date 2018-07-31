@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import com.develpoment.gobolabali.fundamentalstatistic.Helpers.Utils;
 import com.develpoment.gobolabali.fundamentalstatistic.Main.MainActivity;
 import com.develpoment.gobolabali.fundamentalstatistic.Match.MatchActivity;
 import com.develpoment.gobolabali.fundamentalstatistic.R;
+import com.facebook.stetho.server.http.HttpStatus;
 import com.shashank.sony.fancydialoglib.Animation;
 import com.shashank.sony.fancydialoglib.FancyAlertDialogListener;
 import com.shashank.sony.fancydialoglib.Icon;
@@ -162,7 +164,7 @@ public class SettingActivity extends AppCompatActivity {
 
     private void importOnline() {
         if (getNetworkAvailability()) {
-            mDialog = new ProgressDialog(this);
+            mDialog = new ProgressDialog(SettingActivity.this);
             mDialog.setMessage("Importing Data..");
             mDialog.setCancelable(false);
             mDialog.setProgressStyle(0);
@@ -181,18 +183,20 @@ public class SettingActivity extends AppCompatActivity {
                         ArrayList<PlayerOnline> arrayPlayer = new ArrayList<>();
                         ArrayList<MatchListOnline> arrayMatchList = new ArrayList<>();
 
-                        if (resp.equals("succes")){
-                            int i;
+                        if (!resp.equals("")){
+                            //int i;
 
-                            for (i=0; i<importTeam.size();i++){
+                            for (int i=0;i<importTournament.size();i++){
+                                TournamentOnline curTournament = (TournamentOnline) importTournament.get(i);
+                                arrayTournament.add(new TournamentOnline(curTournament.getIdTournament(), curTournament.getNamaTournament()));
+                            }
+
+/*                            for (i=0; i<importTeam.size();i++){
                                 TeamOnline curTeam = (TeamOnline) importTeam.get(i);
                                 arrayTeam.add(new TeamOnline(curTeam.getIdTeam(), curTeam.getNamaTeam()));
                             }
 
-                            for (i=0;i<importTournament.size();i++){
-                                TournamentOnline curTournament = (TournamentOnline) importTournament.get(i);
-                                arrayTournament.add(new TournamentOnline(curTournament.getIdTournament(), curTournament.getNamaTournament()));
-                            }
+
 
                             for (i=0;i<importPlayer.size();i++){
                                 PlayerOnline curPlayer = (PlayerOnline) importPlayer.get(i);
@@ -206,19 +210,31 @@ public class SettingActivity extends AppCompatActivity {
                                 arrayMatchList.add(new MatchListOnline(curMatchList.getNamaPertandingan(),curMatchList.getIdTeam1(),
                                         curMatchList.getIdTeam2(), curMatchList.getIdTournament(),curMatchList.getTanggal(),
                                         curMatchList.getMulai(), curMatchList.getAkhir(),curMatchList.getStatus()));
-                            }
+                            }*/
 
                         }else {
-
+                            int sc = response.code();
+                            switch (sc){
+                                case 400:
+                                    Log.e("Error 400", "Bad Request");
+                                    break;
+                                case HttpStatus.HTTP_NOT_FOUND:
+                                    Log.e("Error 404", "Not Found");
+                                    break;
+                                default:
+                                    Log.e("Error", "Generic Error");
+                                    break;
+                            }
+                            Toast.makeText(getApplicationContext(),"Failed Import. Error Code :" +sc, Toast.LENGTH_LONG).show();
                         }
-
-
+                        mDialog.dismiss();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Base> call, Throwable t) {
-
+                    mDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
             return;

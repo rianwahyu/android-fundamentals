@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Base {
+
     @SerializedName("player")
     @Expose
     private List<PlayerOnline> player = null;
@@ -16,7 +17,7 @@ public class Base {
 
     @SerializedName("tournament")
     @Expose
-    private List<TournamentOnline> tournament = null;
+    private List<TournamentOnline> tournament;
 
     @SerializedName("matchlist")
     @Expose

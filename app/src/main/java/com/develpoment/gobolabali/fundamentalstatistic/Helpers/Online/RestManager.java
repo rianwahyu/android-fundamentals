@@ -9,7 +9,7 @@ public class RestManager {
     public DataServices getDataService() {
         if (mDataService == null) {
             mDataService = (DataServices) new Retrofit.Builder()
-                    .baseUrl("http://register.gobolabali.com/demo/adminarea/json?key=jsonbwdgbb2018")
+                    .baseUrl("http://register.gobolabali.com/demo/adminarea/json/?key=jsonbwdgbb2018/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(DataServices.class);

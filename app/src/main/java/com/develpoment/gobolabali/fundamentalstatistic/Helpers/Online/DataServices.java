@@ -4,7 +4,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface DataServices {
-    @GET("access_android")
+    @GET(" ")
     Call<Base> importAndroid();
 
 }
