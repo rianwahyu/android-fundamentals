@@ -53,6 +53,7 @@ import com.shashank.sony.fancydialoglib.Icon;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -810,7 +811,9 @@ public class GameActivity extends AppCompatActivity implements CadanganAdapter.C
         Log.e("LOG-TEXT", btext);
         if (btext.equals("")){
             openPlayer("new", idteam, btn, txt);
-        }else {
+        }
+
+        else {
             openPlayerOpt(idteam, btn, txt);
         }
     }
@@ -901,12 +904,29 @@ public class GameActivity extends AppCompatActivity implements CadanganAdapter.C
             list = kananList;
             selButton.setBackgroundResource(R.drawable.touch_blue);
         }
-        //openPlayer("old", idteam, b, textView);
-        removeItem(list, playerOld);
+
+
         String cadanganId = db.getPlayerId(idteam, idmatch, curCadanganNo);
-        db.updateFormation(idmatch, idteam, playerOld, cadanganId, getPositionName(selButton));
+        /*Intent resultIntent = new Intent();
+        resultIntent.putExtra("ac_player_mode", "cadangan");
+        resultIntent.putExtra("ac_player_old", playerOld);
+        resultIntent.putExtra("ac_player_id", cadanganId);
+        resultIntent.putExtra("ac_player_team", idteam);*/
+//        startActivityForResult(resultIntent,222);
+
+
+
+        //String cadanganId = db.getPlayerId(idteam, idmatch, curCadanganNo);
+        removeItem(list, playerOld);
+        db.updateFormation2(idmatch, idteam, playerOld, cadanganId, getPositionName(selButton));
+
         selButton.setText(curCadanganNo);
         selText.setText(curCadanganNickname);
+
+
+        //executeLong(idteam, selButton, selText );
+
+
         String replace="old";
         Temp.setReplace(replace);
 
@@ -1326,16 +1346,13 @@ public class GameActivity extends AppCompatActivity implements CadanganAdapter.C
                     playerOld = data.getStringExtra("ac_player_old");
                     removeItem(list, playerOld);
                     db.updateFormation(idmatch, playerTeam, playerOld, playerId, getPositionName(selButton));
+                }else if (playerMode.equals("cadangan")){
+                    playerOld = data.getStringExtra("ac_player_old");
+                    removeItem(list, playerOld);
+                    db.updateFormation(idmatch, playerTeam, playerOld, playerId, getPositionName(selButton));
                 }else {
-                    if (playerMode.equals("cadangan")){
-                        playerOld = data.getStringExtra("ac_player_old");
-                        removeItem(list, playerOld);
-                        db.updateFormation(idmatch, playerTeam, playerOld, playerId, getPositionName(selButton));
-                    }else {
-                        db.insertFormation(idmatch, playerTeam, playerId, getPositionName(selButton));
-                        db.updateMatchStatus(idmatch);
-                    }
-
+                    db.insertFormation(idmatch, playerTeam, playerId, getPositionName(selButton));
+                    db.updateMatchStatus(idmatch);
                 }
                 runSnack(playerNick + " (" + playerNumber + ") berhasil dimasukkan");
                 loadCadangan();
@@ -1353,8 +1370,6 @@ public class GameActivity extends AppCompatActivity implements CadanganAdapter.C
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-
 
         if (item.getItemId() == R.id.Result){
             Intent menuIntent = new Intent(getApplicationContext(), GameDetailActivity.class);

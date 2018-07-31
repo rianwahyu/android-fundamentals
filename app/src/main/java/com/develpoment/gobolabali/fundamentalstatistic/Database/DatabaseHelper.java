@@ -896,7 +896,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void updateFormation2(String match, String team, String playerOld, String playerNew, String position) {
-        SQLiteDatabase database = this.getWritableDatabase();
+        SQLiteDatabase database = this.getReadableDatabase();
+        String where = "idteam='" + team + "' AND idmatch='"
+                + match + "' AND idplayer='"
+                + getPlayerId(team, match, playerOld) + "'";
+        ContentValues cva = new ContentValues();
+        cva.put("status", "0");
+        cva.put("posnomor", " ");
+        database.update("matchplayer", cva, where, null);
+        Log.e("QUERY", where);
         String where2 = " idteam='" + team + "' AND idmatch='"
                 + match + "' AND idplayer='" + playerNew + "'";
         ContentValues cva2 = new ContentValues();
@@ -904,15 +912,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cva2.put("posnomor", position);
         database.update("matchplayer", cva2, where2, null);
         Log.e("QUERY", where2);
-        String where = "idteam='" + team + "' AND idmatch='"
-                + match + "' AND idplayer='"
-                + getPlayerId(team, match, playerOld) + "'";
-        ContentValues cva = new ContentValues();
-        cva.put("status", "0");
-        cva.put("posnomor", position);
-        database.update("matchplayer", cva, where, null);
-        Log.e("QUERY", where);
-
     }
 
     public void removeFormation(String match, String team, String player) {

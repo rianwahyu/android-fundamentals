@@ -38,40 +38,40 @@ public class CSVWritter {
             StringBuffer sb = new StringBuffer();
             for (int i = 0; i < nextLine.length; i++) {
                 if (i != 0) {
-                    sb.append(this.separator);
+                    sb.append(separator);
                 }
                 String nextElement = nextLine[i];
                 if (nextElement != null) {
-                    if (this.quotechar != '\u0000') {
-                        sb.append(this.quotechar);
+                    if (quotechar != '\u0000') {
+                        sb.append(quotechar);
                     }
                     for (int j = 0; j < nextElement.length(); j++) {
                         char nextChar = nextElement.charAt(j);
-                        if (this.escapechar != '\u0000' && nextChar == this.quotechar) {
-                            sb.append(this.escapechar).append(nextChar);
-                        } else if (this.escapechar == '\u0000' || nextChar != this.escapechar) {
+                        if (escapechar != '\u0000' && nextChar == quotechar) {
+                            sb.append(escapechar).append(nextChar);
+                        } else if (escapechar == '\u0000' || nextChar != escapechar) {
                             sb.append(nextChar);
                         } else {
-                            sb.append(this.escapechar).append(nextChar);
+                            sb.append(escapechar).append(nextChar);
                         }
                     }
-                    if (this.quotechar != '\u0000') {
-                        sb.append(this.quotechar);
+                    if (quotechar != '\u0000') {
+                        sb.append(quotechar);
                     }
                 }
             }
-            sb.append(this.lineEnd);
-            this.pw.write(sb.toString());
+            sb.append(lineEnd);
+            pw.write(sb.toString());
         }
     }
 
     public void flush() throws IOException {
-        this.pw.flush();
+        pw.flush();
     }
 
     public void close() throws IOException {
-        this.pw.flush();
-        this.pw.close();
+        pw.flush();
+        pw.close();
     }
 }
 
